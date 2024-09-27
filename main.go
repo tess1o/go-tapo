@@ -3,8 +3,8 @@ package main
 import (
 	"encoding/json"
 	"flag"
-	"github.com/achetronic/tapogo/api/types"
-	"github.com/achetronic/tapogo/pkg/tapogo"
+	"github.com/tess1o/go-tapo/api/types"
+	"github.com/tess1o/go-tapo/pkg/tapogo"
 	"log"
 	"os"
 	"time"

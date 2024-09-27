@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/achetronic/tapogo/api/types"
+	"github.com/tess1o/go-tapo/api/types"
 )
 
 type TapoOptions struct {
