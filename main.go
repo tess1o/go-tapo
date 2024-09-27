@@ -13,7 +13,7 @@ import (
 const (
 	EmailFlagDescription             = "(Required) Email to access the device"
 	PasswordFlagDescription          = "(Required) Password to access the device"
-	IpFlagDescription                = "(Required) Device IP address"
+	IpFlagDescription                = "(Required) Device IP address or hostname"
 	CommandFlagDescription           = "Command to execute: device-info (default), on, off, energy-usage"
 	HandshakeDurationFlagDescription = "Duration to sleep between handshake phases (default: '1s')"
 )

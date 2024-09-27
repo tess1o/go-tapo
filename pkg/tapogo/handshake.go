@@ -105,7 +105,7 @@ func (d *Tapo) Handshake1() (handshakeData HandshakeData, err error) {
 		return handshakeData, fmt.Errorf("error while generating random string: %s", err)
 	}
 
-	u, err := url.Parse(fmt.Sprintf("http://%s/app/handshake1", d.ip))
+	u, err := url.Parse(fmt.Sprintf("http://%s/app/handshake1", d.host))
 	if err != nil {
 		return handshakeData, err
 	}
@@ -157,7 +157,7 @@ func (d *Tapo) Handshake2(handshakeData *HandshakeData) error {
 	//log.Printf("SeedAuthHash: %x", remoteSeedAuthHash) TODO: Show in debug mode only
 
 	// Create URL for Handshake2
-	u, err := url.Parse(fmt.Sprintf("http://%s/app/handshake2", d.ip))
+	u, err := url.Parse(fmt.Sprintf("http://%s/app/handshake2", d.host))
 	if err != nil {
 		return err
 	}

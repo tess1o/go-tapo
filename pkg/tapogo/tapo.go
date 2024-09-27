@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"net"
 	"net/http"
 	"net/url"
 	"time"
@@ -23,7 +22,7 @@ type TapoOptions struct {
 type Tapo struct {
 
 	// Fields related to user's information
-	ip       net.IP
+	host     string
 	email    string
 	password string
 
@@ -35,9 +34,9 @@ type Tapo struct {
 	handshakeData *HandshakeData
 }
 
-func NewTapo(ip, email, password string, options *TapoOptions) (*Tapo, error) {
+func NewTapo(host, email, password string, options *TapoOptions) (*Tapo, error) {
 	d := &Tapo{
-		ip:       net.ParseIP(ip),
+		host:     host,
 		email:    email,
 		password: password,
 
@@ -70,7 +69,7 @@ func (d *Tapo) PerformRequest(request *types.RequestSpec) (response *types.Respo
 	encryptedPayload, seq := d.handshakeData.Session.encrypt(string(jsonBytes))
 
 	// Endpoint for KLAP is a bit different
-	u, err := url.Parse(fmt.Sprintf("http://%s/app/request?seq=%d", d.ip, seq))
+	u, err := url.Parse(fmt.Sprintf("http://%s/app/request?seq=%d", d.host, seq))
 	if err != nil {
 		return response, err
 	}
